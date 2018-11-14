@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "666667188",
+    "firebase_url": "https://l2h-demo-app.firebaseio.com",
+    "project_id": "l2h-demo-app",
+    "storage_bucket": "l2h-demo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666667188:android:b7b92f52cbecc85d",
+        "android_client_info": {
+          "package_name": "org.michiganhackers.l2h_demo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666667188-60l4u4b40sf0i008j3pelu3mprvuhe5p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.michiganhackers.l2h_demo_app",
+            "certificate_hash": "96d984e52520cac1f36f1460fe599134d7eaef5c"
+          }
+        },
+        {
+          "client_id": "666667188-tjvsbd00i3om22h6fvjf4q94f11id0jr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIjdBJwYkU_b19VH2xEXrx4Odd621i4Wc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666667188-tjvsbd00i3om22h6fvjf4q94f11id0jr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
