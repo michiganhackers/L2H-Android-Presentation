@@ -3,14 +3,13 @@ This project is an Android presentation given to the Learn-to-Hack team in the i
 
 ## Contents
 * The androidPresentation.pptx file is the presentation on Android. It contains basic information about Android as well as some resources for learning.
-* The demoOutline.docx file contains notes about the demo app and Android development in general.
 * The demoAppGif.gif file is a GIF preview of the demo app.
 * The rest of the files pertain to the to-do list demo app.
 
 ## Improving the To-do List App
 If you're interested in expanding upon the demo app, or you just want some ideas for creating an app of your own, refer to the following feature list. The list is roughly ordered in increasing difficulty.
 * Support configuration changes
-	* Hint: Learn about the onSaveInstanceState method of the Activity class. You can also use the ViewModel class, though that is harder.
+	* Hint: Learn about the onSaveInstanceState method of the Activity class. You can also use the ViewModel class, though this is more difficult.
 * Add more content to to the to-do list items
 	* Hint: Learn about creating a custom ArrayAdapter
 * Create an indicator for completed tasks e.g. a check box
