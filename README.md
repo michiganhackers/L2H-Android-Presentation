@@ -24,4 +24,4 @@ If you're interested in expanding upon the demo app, or you just want some ideas
 	* Hint: Learn about the Room Persistence Library if you want to save the data locally. Learn about a cloud database, such as Firebase's Cloud Firestore, if you want to be able to access the data across multiple devices.
 
 ## Contact Info
-Feel free to contact me at vnagel@umich.edu if you have any questions about the demo app or Android development in general. I inviite you join the Michigan Hackers Android development team if you're interested in learning more.
+Feel free to contact me at vnagel@umich.edu if you have any questions about the demo app or Android development in general. I invite you join the Michigan Hackers Android development team if you're interested in learning more.
