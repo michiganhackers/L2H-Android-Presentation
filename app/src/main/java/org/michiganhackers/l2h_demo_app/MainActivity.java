@@ -1,7 +1,6 @@
 package org.michiganhackers.l2h_demo_app;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,57 +16,50 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ListView todoListView;
     private ArrayAdapter<String> todoListAdapter;
     private List<String> todoListItems;
-    private List<Integer> todoListStates;
+    private FloatingActionButton addItemButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton todoListAddItemButton = findViewById(R.id.addTodoItemButton);
+        addItemButton = findViewById(R.id.addItemFAB);
 
-        ListView todoListView = findViewById(R.id.todoList);
+        todoListView = findViewById(R.id.todoListView);
         todoListItems = new ArrayList<>();
-        todoListStates = new ArrayList<>();
         todoListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, todoListItems);
         todoListView.setAdapter(todoListAdapter);
 
-        todoListAddItemButton.setOnClickListener(new View.OnClickListener() {
+        addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openTodoListAddItemDialog();
+                openAddItemDialog();
             }
         });
 
         todoListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                openTodoListItemLongClickDialog(i);
+                openRemoveItemDialog(i);
                 return true;
             }
         });
 
-        todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        addItemButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (todoListStates.get(i) == 0) {
-                    view.setBackgroundColor(Color.GREEN);
-                    todoListStates.set(i, 1);
-                }
-                else{
-                    view.setBackgroundColor(Color.WHITE);
-                    todoListStates.set(i, 0);
-                }
+            public boolean onLongClick(View view) {
+                openClearItemsDialog();
+                return true;
             }
         });
-
     }
 
-    private void openTodoListAddItemDialog(){
+    private void openAddItemDialog(){
         AlertDialog.Builder addItemAlert = new AlertDialog.Builder(MainActivity.this);
-        addItemAlert.setTitle("Add an item to your todo list");
+        addItemAlert.setTitle("Add Item");
 
         final EditText input = new EditText(MainActivity.this);
         addItemAlert.setView(input);
@@ -75,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         addItemAlert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String item = input.getText().toString();
-                addItemTodoList(item);
+                addItem(item);
             }
         });
 
@@ -87,13 +79,18 @@ public class MainActivity extends AppCompatActivity {
         addItemAlert.show();
     }
 
-    private void openTodoListItemLongClickDialog(final int position) {
+    private void addItem(String item){
+        todoListItems.add(item);
+        todoListAdapter.notifyDataSetChanged();
+    }
+
+    private void openRemoveItemDialog(final int position) {
         AlertDialog.Builder addItemAlert = new AlertDialog.Builder(MainActivity.this);
-        addItemAlert.setTitle("Delete an item from your todo list");
+        addItemAlert.setTitle("Delete Item");
 
         addItemAlert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                removeItemTodoList(position);
+                removeItem(position);
             }
         });
 
@@ -105,15 +102,30 @@ public class MainActivity extends AppCompatActivity {
         addItemAlert.show();
     }
 
-    private void addItemTodoList(String item){
-        todoListItems.add(item);
-        todoListStates.add(0);
+    private void removeItem(int pos){
+        todoListItems.remove(pos);
         todoListAdapter.notifyDataSetChanged();
     }
-    private void removeItemTodoList(int pos){
-        todoListItems.remove(pos);
-        todoListStates.remove(pos);
-        todoListAdapter.notifyDataSetChanged();
 
+    private void openClearItemsDialog(){
+        AlertDialog.Builder addItemAlert = new AlertDialog.Builder(MainActivity.this);
+        addItemAlert.setTitle("Clear All Items");
+
+        addItemAlert.setPositiveButton("Clear", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                clearItems();
+            }
+        });
+
+        addItemAlert.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        addItemAlert.show();
+    }
+    private void clearItems(){
+        todoListItems.clear();
+        todoListAdapter.notifyDataSetChanged();
     }
 }
