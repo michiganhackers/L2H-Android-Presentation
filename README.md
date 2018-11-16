@@ -23,7 +23,7 @@ Create a Github account to interact with the remote repository.
 [Join](https://github.com/join)
 
 ### Installing
-Fork this GitHub repository and clone the resulting repository. This is recommended so you may make expand upon the app and keep your changes under version control.
+Fork this GitHub repository and clone the resulting repository. This is recommended so you can expand upon the app and keep your changes under version control.
 1. Select "Fork" at the top right of this repository
 2. Open Android Studio
 3. If Android Studio does not automatically open a previous project of yours, skip to step 6
