@@ -1,5 +1,5 @@
 # Learn-to-Hack Android Presenation
-This project is an Android presentation given to the Learn-to-Hack team in the in University of Michigan student organization called Michigan Hackers.
+This project is an Android presentation given to the Learn-to-Hack team in Michigan Hackers.
 
 ## Contents
 * The androidPresentation.pptx contains basic information about Android as well as some resources for learning.
